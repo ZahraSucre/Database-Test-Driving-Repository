@@ -8,7 +8,7 @@ import os
 # If the below seems too complex right now, that's OK.
 # That's why we have provided it!
 class DatabaseConnection:
-    DATABASE_NAME = "DEFAULT_MAKERS_PROJECT" # <-- CHANGE THIS!
+    DATABASE_NAME = "book_store" 
 
     # This method connects to PostgreSQL using the psycopg library. We connect
     # to localhost and select the database name given in argument.
@@ -18,8 +18,8 @@ class DatabaseConnection:
                 f"postgresql://localhost/{self.DATABASE_NAME}",
                 row_factory=dict_row)
         except psycopg.OperationalError:
-            raise Exception(f"Couldn't connect to the database {self.DATABASE_NAME}! " \
-                    f"Did you create it using `createdb {self.DATABASE_NAME}`?")
+            raise Exception(f"Couldn't connect to the database {self.book_store}! " \
+                    f"Did you create it using `createdb {self.book_store}`?")
 
     # This method seeds the database with the given SQL file.
     # We use it to set up our database ready for our tests or application.
